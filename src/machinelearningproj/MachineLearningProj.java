@@ -12,6 +12,7 @@ package machinelearningproj;
 public class MachineLearningProj {
     
     public static void main(String[] args) {
+        
         /* sigmoid testing
         double randNumber = 0;
         for(int i=1; i<100; i++) {
@@ -19,15 +20,14 @@ public class MachineLearningProj {
             System.out.println(randNumber + " - " + sigmoid(randNumber));
         }
         */
-        Neuron testNeuron = new Neuron();
-        testNeuron.setBias(4);
-        testNeuron.setWeights(0,1);
         
-        /*test functions
-        System.out.println("bias: " + testNeuron.getBias());
-        System.out.println("weight1: " + testNeuron.getWeightProd());
-        System.out.println("output: " + testNeuron.output(2,3));
-        */
+        Neuron testNeuron = new Neuron();
+        Network testNetwork = new Network();
+        double result = 0.0;
+        
+        double[] test = new double[]{2,3};
+        result = testNetwork.feedForward(test);
+        System.out.println(result);
 
     }
     
