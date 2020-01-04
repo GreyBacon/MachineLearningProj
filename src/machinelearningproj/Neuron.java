@@ -10,6 +10,7 @@ package machinelearningproj;
  * @author 
  */
 public class Neuron {
+    double[] weights = new double[2];
     double weight1 = 0; 
     double weight2 = 0;
     double bias = 0;
@@ -29,13 +30,18 @@ public class Neuron {
         this.weight1 = weight1;
         this.weight2 = weight2;
     }
+    
+    public void setWeights(double[] weights) {
+        this.weight1 = weights[0];
+        this.weight2 = weights[1];
+    }
     public double getWeightProd() {
         return weight1 * weight2;
     }
-    
-    public double output(double input1, double input2) {
+        
+    public double output(double[] input) {
         double result = 0.0;
-        result = sigmoid((input1 * weight1) + (input2 * weight2) + bias); //Calculates both inputs weighted with a signmoid function
+        result = sigmoid((input[0] * weight1) + (input[1] * weight2) + bias); //Calculates both inputs weighted with a signmoid function
         
         return result;
     }
