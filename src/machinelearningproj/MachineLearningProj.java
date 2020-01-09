@@ -21,13 +21,21 @@ public class MachineLearningProj {
         }
         */
         
-        Neuron testNeuron = new Neuron();
+        //test neural network
         Network testNetwork = new Network();
         double result = 0.0;
         
         double[] test = new double[]{2,3};
         result = testNetwork.feedForward(test);
         System.out.println(result);
+        
+        //test MSE loss
+        double[] inputs = new double[]{1,0,0,1};
+        double[] predictions = new double[]{0,0,0,0};
+        
+        System.out.println(testNetwork.calcLoss(inputs,predictions));
+        
+        
 
     }
     

@@ -22,16 +22,33 @@ public class Network {
         nResult.setBias(0);
         nResult.setWeights(0, 1);
         
+        
+        
     }
     
     
-    public double feedForward(double[] input) {
+    //Passes the results from two neurons into a third one 
+    public double feedForward(double[] input) { 
         double[] combined = new double[2]; //Array with results from two neurons 
         combined[0] = n1.output(input); 
         combined[1] = n2.output(input);
         
-     return nResult.output(combined);   
+     return nResult.output(combined); //Returns the result from the third neuron 
     }
-    
-    
+   
+    /*
+        Calculates the mean squared error (MSE) loss
+        Adds square of the difference between input and predicted
+        input from each array entry to the total then divides the
+        total by the number of entries
+    */
+    public double calcLoss(double[] inputs, double[] predictions){
+        double result = 0.0;
+        
+        for(int i = 0; i < inputs.length; i++){
+            result += Math.pow((inputs[i] - predictions[i]),2); 
+        }
+        result = result / inputs.length;
+    return result;
+    }
 }
